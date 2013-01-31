@@ -1,0 +1,35 @@
+默認情況下,FCKEditor在進行文本編輯時,無法使用中文字體。
+
+打開 fckconfig.js 文件
+
+找到第154行(應該是),會發現:
+
+程序代碼：
+
+
+FCKConfig.FontNames = 'Arial;Comic Sans MS;Courier New;Tahoma;Times New Roman;Verdana' ;
+
+將其修改為:
+
+FCKConfig.FontNames = '宋體;黑體;幼圓;楷體_GB2312;仿宋_GB2312;Arial;Comic Sans MS;Courier New;Tahoma;Times New Roman;Verdana' ;
+
+
+這樣還是不行，雖然發現編輯器的字體選項多了已添加的中文字體，但應用到文本上卻發現沒有任何作用！
+
+接著下一步 ：
+
+打開editor/css/fck_editorarea.css 文件
+
+將程序代碼:找到第43行(應該是),會發現
+
+
+font-family: Arial, Verdana, sans-serif;
+
+修改為：
+
+font-family: 宋體, 黑體, 幼圓, 楷體, 仿宋, Arial, Verdana, sans-serif;
+
+
+註意：一定要“另保存”為 UTF-8編碼格式的文檔，否則會出現亂碼！
+
+可用記事本的另存為，選擇UTF-8
